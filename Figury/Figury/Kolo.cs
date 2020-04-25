@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Figury
 {
-    public class Kolo
+    public class Kolo: Figura
     {
         public Punkt Punkt { get; set; }
         public double Promien { get; set; }

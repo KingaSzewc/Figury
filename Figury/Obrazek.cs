@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Figury
 {
-    public class Obrazek
+    public class Obrazek: Figura
     {
         public List<Punkt> listaPunktow { get; set; }
         public List<Trojkat> listaTrojkatow { get; set; }

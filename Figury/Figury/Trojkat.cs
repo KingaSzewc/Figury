@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Figury
 {
-    public class Trojkat
+    public class Trojkat : Figura
     {
         public Punkt Punkt1 { get; set; }
         public Punkt Punkt2 { get; set; }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Figury
 {
-    public class Punkt
+    public class Punkt : Figura
     {
         public double X { get; set; }
         public double Y { get; set; }

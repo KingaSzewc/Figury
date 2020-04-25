@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Figury
 {
-    public abstract class Figura
+    public class Figura
     {
-
+        public string Label { get; set; }
     }
 }
