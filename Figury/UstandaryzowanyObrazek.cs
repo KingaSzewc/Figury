@@ -22,7 +22,7 @@ namespace Figury
             }
             else
             {
-                Console.WriteLine("etykieta zawiera małe litery ");
+                Console.WriteLine("etykieta zawiera małe litery lub zaczyna sie cyfra ");
                 Console.WriteLine("Naciśnij Dowolny przycisk");
                 Console.ReadKey();
             }
