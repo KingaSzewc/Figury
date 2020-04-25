@@ -22,7 +22,7 @@ namespace Figury
             this.Y = p.Y;
         }
 
-        public void Move(double xMove, double yMove)
+        public override void Move(double xMove, double yMove)
         {
             this.X += xMove;
             this.Y += yMove;
@@ -31,11 +31,6 @@ namespace Figury
         public override string ToString()
         {
             return $"Punkt X: {this.X} y: {this.Y} ";
-        }
-
-        public double GetArea()
-        {
-            return 0;
         }
     }
 }

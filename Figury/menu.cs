@@ -161,46 +161,7 @@ namespace Figury
             Console.WriteLine("Podaj Y");
             pom2 = int.Parse(Console.ReadLine());
 
-
-            var iloscPunktow = obrazek.listaPunktow.Count;
-            var iloscTrojkatow = obrazek.listaTrojkatow.Count;
-            var iloscKol = obrazek.listaKol.Count;
-            var iloscOdcinkow = obrazek.listaOdcinkow.Count;
-
-            if (numerElementu > iloscPunktow)
-            {
-                numerElementu = numerElementu - iloscPunktow;
-            }
-            else
-            {
-                obrazek.listaPunktow.ElementAt(numerElementu - 1).Move(pom1, pom2);
-                return;
-            }
-
-            if (numerElementu > iloscTrojkatow)
-            {
-                numerElementu = numerElementu - iloscTrojkatow;
-            }
-            else
-            {
-                obrazek.listaTrojkatow.ElementAt(numerElementu - 1).Move(pom1, pom2);
-                return;
-            }
-
-            if (numerElementu > iloscKol)
-            {
-                numerElementu = numerElementu - iloscKol;
-            }
-            else
-            {
-                obrazek.listaKol.ElementAt(numerElementu - 1).Move(pom1, pom2);
-                return;
-            }
-
-            if (numerElementu <= iloscOdcinkow)
-            {
-                obrazek.listaOdcinkow.ElementAt(numerElementu - 1).Move(pom1, pom2);
-            }
+            obrazek.listaFigur.ElementAt(numerElementu).Move(pom1, pom2);
         }
 
     }

@@ -21,7 +21,7 @@ namespace Figury
             this.Punkt2 = new Punkt(o.Punkt2);
         }
 
-        public void Move(double xMove, double yMove)
+        public override void Move(double xMove, double yMove)
         {
             this.Punkt1.Move(xMove, yMove);
             this.Punkt2.Move(xMove, yMove);
@@ -33,10 +33,7 @@ namespace Figury
                 $"{this.Punkt1.ToString()} " +
                 $"{this.Punkt2.ToString()}";
         }
-        public double GetArea()
-        {
-            return 0;
-        }
+
         public double GetDlugosc()
         {
             var x = Punkt1.X - Punkt2.X;

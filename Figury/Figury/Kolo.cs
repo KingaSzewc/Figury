@@ -24,7 +24,7 @@ namespace Figury
             this.Promien = k.Promien;
         }
 
-        public void Move(double xMove, double yMove)
+        public override void Move(double xMove, double yMove)
         {
             this.Punkt.Move(xMove, yMove);
         }
@@ -36,7 +36,7 @@ namespace Figury
                 $"Promien: {this.Promien} " +
                 $"Punkt: {this.Punkt.ToString()}";
         }
-        public double GetArea()
+        public override double GetArea()
         {
             var pi = 3.14;
 

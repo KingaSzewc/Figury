@@ -28,7 +28,7 @@ namespace Figury
             this.Punkt3 = new Punkt(t.Punkt3);
         }
 
-        public void Move(double xMove, double yMove)
+        public override void Move(double xMove, double yMove)
         {
             this.Punkt1.Move(xMove, yMove);
             this.Punkt2.Move(xMove, yMove);
@@ -44,7 +44,7 @@ namespace Figury
                 $"{this.Punkt3.ToString()}";
         }
 
-        public double GetArea()
+        public override double GetArea()
         {
             var odcinek1 = new Odcinek(this.Punkt1, this.Punkt2);
             var odcinek2 = new Odcinek(this.Punkt2, this.Punkt3);
