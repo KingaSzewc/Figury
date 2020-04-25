@@ -8,10 +8,10 @@ namespace Figury
 {
     public class Menu
     {
-        public Obrazek obrazek;
+        public UstandaryzowanyObrazek obrazek;
         public Menu()
         {
-            obrazek = new Obrazek();
+            obrazek = new UstandaryzowanyObrazek();
         }
 
         public void StartMenu()
@@ -68,18 +68,29 @@ namespace Figury
         {
             var pom1 = 0;
             var pom2 = 0;
+            var etykieta = string.Empty;
+
+            Console.WriteLine("Podaj Etykiete");
+            etykieta = Console.ReadLine();
+
             Console.WriteLine("Podaj X");
             pom1 = int.Parse(Console.ReadLine());
             Console.WriteLine("Podaj Y");
             pom2 = int.Parse(Console.ReadLine());
             Punkt p = new Punkt(pom1, pom2);
-            obrazek.DodajPunkt(p);
+            p.Label = etykieta;
+
+            obrazek.DodajFigure(p);
         }
 
         public void DodajOdcinek()
         {
             var pom1 = 0;
             var pom2 = 0;
+            var etykieta = string.Empty;
+
+            Console.WriteLine("Podaj Etykiete");
+            etykieta = Console.ReadLine();
 
             Console.WriteLine("Punkt 1");
             Console.WriteLine("Podaj X");
@@ -96,13 +107,18 @@ namespace Figury
             Punkt p2 = new Punkt(pom1, pom2);
 
             Odcinek o = new Odcinek(p1, p2);
-            obrazek.DodajOdcinek(o);
+            o.Label = etykieta;
+            obrazek.DodajFigure(o);
         }
 
         public void DodajKolo()
         {
             var pom1 = 0;
             var pom2 = 0;
+            var etykieta = string.Empty;
+
+            Console.WriteLine("Podaj Etykiete");
+            etykieta = Console.ReadLine();
 
             Console.WriteLine("Punkt");
             Console.WriteLine("Podaj X");
@@ -114,13 +130,18 @@ namespace Figury
             Console.WriteLine("Podaj Promien");
             pom1 = int.Parse(Console.ReadLine());
             Kolo k = new Kolo(p1, pom1);
-            obrazek.DodajKolo(k);
+            k.Label=etykieta;
+            obrazek.DodajFigure(k);
         }
 
         public void DodajTrojkat()
         {
             var pom1 = 0;
             var pom2 = 0;
+            var etykieta = string.Empty;
+
+            Console.WriteLine("Podaj Etykiete");
+            etykieta = Console.ReadLine();
 
             Console.WriteLine("Punkt 1");
             Console.WriteLine("Podaj X");
@@ -144,7 +165,8 @@ namespace Figury
             Punkt p3 = new Punkt(pom1, pom2);
 
             Trojkat t = new Trojkat(p1, p2, p3);
-            obrazek.DodajTrojkat(t);
+            t.Label = etykieta;
+            obrazek.DodajFigure(t);
         }
 
         public void Move()
@@ -161,7 +183,7 @@ namespace Figury
             Console.WriteLine("Podaj Y");
             pom2 = int.Parse(Console.ReadLine());
 
-            obrazek.listaFigur.ElementAt(numerElementu).Move(pom1, pom2);
+            obrazek.listaFigur.ElementAt(numerElementu - 1).Move(pom1, pom2);
         }
 
     }

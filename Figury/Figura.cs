@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Figury
 {
-    public class Figura
+    public abstract class Figura
     {
         public string Label { get; set; }
 

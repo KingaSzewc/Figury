@@ -15,22 +15,7 @@ namespace Figury
             listaFigur = new List<Figura>();
         }
 
-        public void DodajPunkt(Punkt nowy)
-        {
-            listaFigur.Add(nowy);
-        }
-
-        public void DodajTrojkat(Trojkat nowy)
-        {
-            listaFigur.Add(nowy);
-        }
-
-        public void DodajKolo(Kolo nowy)
-        {
-            listaFigur.Add(nowy);
-        }
-
-        public void DodajOdcinek(Odcinek nowy)
+        public void DodajFigure(Figura nowy)
         {
             listaFigur.Add(nowy);
         }
@@ -50,7 +35,7 @@ namespace Figury
 
             foreach (var item in listaFigur)
             {
-                stringToReturn += $"{counter++} {item.ToString()}\n";
+                stringToReturn += $"{counter++} {item.Label} {item.ToString()}\n";
             }
             return stringToReturn;
         }
