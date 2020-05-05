@@ -18,5 +18,11 @@ namespace Figury
         {
             return 0;
         }
+        public virtual double GetOdleglosc()
+        {
+            return 0;
+        }
+
+
     }
 }

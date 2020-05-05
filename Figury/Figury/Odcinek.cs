@@ -40,5 +40,14 @@ namespace Figury
             var y = Punkt1.Y - Punkt2.Y;
             return Math.Sqrt((x * x) + (y * y));
         }
+
+        public override double GetOdleglosc()
+        {
+            var xTmp = (Punkt1.X + Punkt2.X) / 2;
+            var yTmp = (Punkt1.Y + Punkt2.Y) / 2;
+            var nowyPunkt = new Punkt(xTmp, yTmp);
+
+            return nowyPunkt.GetOdleglosc();
+        }
     }
 }

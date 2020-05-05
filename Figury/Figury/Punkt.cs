@@ -32,5 +32,10 @@ namespace Figury
         {
             return $"Punkt X: {this.X} y: {this.Y} ";
         }
+
+        public override double GetOdleglosc()
+        {
+            return Math.Sqrt(this.X * this.X + this.Y * this.Y);
+        }
     }
 }

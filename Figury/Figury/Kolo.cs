@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Figury
 {
-    public class Kolo: Figura
+    public class Kolo : Figura, IScalable, IFillable
     {
         public Punkt Punkt { get; set; }
         public double Promien { get; set; }
-
+        public int Color { get; set; }
         public Kolo()
         {
 
@@ -44,5 +44,19 @@ namespace Figury
             return area;
         }
 
+        public override double GetOdleglosc()
+        {
+            return this.Punkt.GetOdleglosc();
+        }
+
+        public void scalePerimeter(double k)
+        {
+            Promien = Promien * k;
+        }
+
+        public void fill(int color)
+        {
+            this.Color = color;
+        }
     }
 }

@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Figury
 {
-    public class Trojkat : Figura
+    public class Trojkat : Figura, IScalable, IFillable
     {
         public Punkt Punkt1 { get; set; }
         public Punkt Punkt2 { get; set; }
         public Punkt Punkt3 { get; set; }
-
+        public int Color { get; set; }
 
         public Trojkat()
         {
@@ -37,6 +37,10 @@ namespace Figury
 
         public override string ToString()
         {
+            var xTmp = (Punkt1.X + Punkt2.X + Punkt3.X) / 3;
+            var yTmp = (Punkt1.Y + Punkt2.Y + Punkt3.Y) / 3;
+            var nowyPunkt = new Punkt(xTmp, yTmp);
+
             return
                 $"Trojkat " +
                 $"{this.Punkt1.ToString()} " +
@@ -61,5 +65,31 @@ namespace Figury
             return area;
         }
 
+        public override double GetOdleglosc()
+        {
+            var xTmp = (Punkt1.X + Punkt2.X + Punkt3.X) / 3;
+            var yTmp = (Punkt1.Y + Punkt2.Y + Punkt3.Y) / 3;
+            var nowyPunkt = new Punkt(xTmp, yTmp);
+
+            return nowyPunkt.GetOdleglosc();
+        }
+
+        public void scalePerimeter(double k)
+        {
+            var xTmp = (Punkt1.X + Punkt2.X + Punkt3.X) / 3;
+            var yTmp = (Punkt1.Y + Punkt2.Y + Punkt3.Y) / 3;
+            var nowyPunkt = new Punkt(xTmp, yTmp);
+
+
+
+
+
+            throw new NotImplementedException();
+        }
+
+        public void fill(int color)
+        {
+            this.Color = color;
+        }
     }
 }
