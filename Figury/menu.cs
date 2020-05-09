@@ -38,7 +38,19 @@ namespace Figury
                         case 4: DodajKolo(); break;
                         case 5: DodajTrojkat(); break;
                         case 6: Move(); break;
-                        case 7: return;
+                        case 7:
+                            Console.WriteLine(obrazek.ToStringSortedByLAbel()); 
+                            Console.WriteLine("Kliknij dowolny przycisk");
+                            Console.ReadKey(); break;
+                        case 8:
+                            Console.WriteLine(obrazek.ToStringSortedByClassName()); 
+                            Console.WriteLine("Kliknij dowolny przycisk");
+                            Console.ReadKey(); break;
+                        case 9:
+                            Console.WriteLine(obrazek.ToStringSortedByDistanceFromOrigin()); 
+                            Console.WriteLine("Kliknij dowolny przycisk");
+                            Console.ReadKey(); break;
+                        case 10: return;
                         default:
                             break;
                     }
@@ -54,7 +66,10 @@ namespace Figury
             Console.WriteLine("4. Dodaj koło");
             Console.WriteLine("5. Dodaj trójkąt");
             Console.WriteLine("6. Przesun Element");
-            Console.WriteLine("7. Wyjscie z programu");
+            Console.WriteLine("7. Posortowane po etykiecie");
+            Console.WriteLine("8. Posortowane po nazwie klasy");
+            Console.WriteLine("9. Posortowane wg. odległości punktu centroida obiektu  od początku układu współrzędnych.");
+            Console.WriteLine("10. Wyjscie z programu");
         }
 
         public void Wyswietl()
