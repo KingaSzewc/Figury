@@ -38,18 +38,9 @@ namespace Figury
                         case 4: DodajKolo(); break;
                         case 5: DodajTrojkat(); break;
                         case 6: Move(); break;
-                        case 7:
-                            Console.WriteLine(obrazek.ToStringSortedByLAbel()); 
-                            Console.WriteLine("Kliknij dowolny przycisk");
-                            Console.ReadKey(); break;
-                        case 8:
-                            Console.WriteLine(obrazek.ToStringSortedByClassName()); 
-                            Console.WriteLine("Kliknij dowolny przycisk");
-                            Console.ReadKey(); break;
-                        case 9:
-                            Console.WriteLine(obrazek.ToStringSortedByDistanceFromOrigin()); 
-                            Console.WriteLine("Kliknij dowolny przycisk");
-                            Console.ReadKey(); break;
+                        case 7: Sortowanepolabel(); break;
+                        case 8: Sortowanepoclassname(); break;
+                        case 9: SortowaneByDistanceFromOrigin(); break;
                         case 10: return;
                         default:
                             break;
@@ -200,6 +191,23 @@ namespace Figury
 
             obrazek.listaFigur.ElementAt(numerElementu - 1).Move(pom1, pom2);
         }
-
+        public void Sortowanepolabel()
+        {
+            Console.WriteLine(obrazek.ToStringSortedByLAbel());
+            Console.WriteLine("Kliknij dowolny przycisk");
+            Console.ReadKey();
+        }
+        public void Sortowanepoclassname()
+        {
+            Console.WriteLine(obrazek.ToStringSortedByClassName());
+            Console.WriteLine("Kliknij dowolny przycisk");
+            Console.ReadKey();
+        }
+        public void SortowaneByDistanceFromOrigin()
+        {
+            Console.WriteLine(obrazek.ToStringSortedByDistanceFromOrigin());
+            Console.WriteLine("Kliknij dowolny przycisk");
+            Console.ReadKey();
+        }
     }
 }
