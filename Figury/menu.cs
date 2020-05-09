@@ -41,7 +41,9 @@ namespace Figury
                         case 7: Sortowanepolabel(); break;
                         case 8: Sortowanepoclassname(); break;
                         case 9: SortowaneByDistanceFromOrigin(); break;
-                        case 10: return;
+                        case 10: UstawKolor(); break;
+                        case 11: Przeskaluj(); break;
+                        case 12: return;
                         default:
                             break;
                     }
@@ -51,16 +53,25 @@ namespace Figury
 
         public void WyswietlMenu()
         {
-            Console.WriteLine("1. Wyswietl");
-            Console.WriteLine("2. Dodaj Punkt");
-            Console.WriteLine("3. Dodaj odcinek");
-            Console.WriteLine("4. Dodaj koło");
-            Console.WriteLine("5. Dodaj trójkąt");
-            Console.WriteLine("6. Przesun Element");
-            Console.WriteLine("7. Posortowane po etykiecie");
-            Console.WriteLine("8. Posortowane po nazwie klasy");
-            Console.WriteLine("9. Posortowane wg. odległości punktu centroida obiektu  od początku układu współrzędnych.");
-            Console.WriteLine("10. Wyjscie z programu");
+            var listaMenu = new string[] {
+            "Wyswietl",
+            "Dodaj Punkt",
+            "Dodaj odcinek",
+            "Dodaj koło",
+            "Dodaj trójkąt",
+            "Przesun Element",
+            "Posortowane po etykiecie",
+            "Posortowane po nazwie klasy",
+            "Posortowane wg. odległości punktu centroida obiektu  od początku układu współrzędnych",
+            "Ustaw kolor figury",
+            "Przeskaluj figure",
+            "Wyjscie z programu"
+            };
+
+            for (int i = 0; i < listaMenu.Count(); i++)
+            {
+                Console.WriteLine((i + 1) + ". " + listaMenu[i]);
+            }
         }
 
         public void Wyswietl()
@@ -136,7 +147,7 @@ namespace Figury
             Console.WriteLine("Podaj Promien");
             pom1 = int.Parse(Console.ReadLine());
             Kolo k = new Kolo(p1, pom1);
-            k.Label=etykieta;
+            k.Label = etykieta;
             obrazek.DodajFigure(k);
         }
 
@@ -209,5 +220,37 @@ namespace Figury
             Console.WriteLine("Kliknij dowolny przycisk");
             Console.ReadKey();
         }
+
+        public void UstawKolor()
+        {
+            Console.WriteLine(obrazek.ToStringTrojkatIKolo());
+            Console.WriteLine("Podaj numer figury");
+            var numerFigury = Console.ReadLine();
+            Console.WriteLine("Podaj kolor");
+            var kolor = Console.ReadLine();
+            obrazek.FillObjects(int.Parse(numerFigury), int.Parse(kolor));
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine(obrazek.ToStringTrojkatIKolo());
+            Console.WriteLine("Kliknij dowolny przycisk");
+            Console.ReadKey();
+        }
+
+        public void Przeskaluj()
+        {
+            Console.WriteLine(obrazek.ToStringTrojkatIKolo());
+            Console.WriteLine("Podaj numer figury");
+            var numerFigury = Console.ReadLine();
+            Console.WriteLine("Podaj wspolczynnik k");
+            var k = Console.ReadLine();
+            obrazek.ScaleObject(int.Parse(numerFigury), int.Parse(k));
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine(obrazek.ToStringTrojkatIKolo());
+            Console.WriteLine("Kliknij dowolny przycisk");
+            Console.ReadKey();
+        }
+
+
     }
 }

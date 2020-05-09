@@ -34,7 +34,8 @@ namespace Figury
             return
                 $"Kolo " +
                 $"Promien: {this.Promien} " +
-                $"Punkt: {this.Punkt.ToString()}";
+                $"Punkt: {this.Punkt.ToString()}" +
+                $"Kolor: {this.Color}";
         }
         public override double GetArea()
         {

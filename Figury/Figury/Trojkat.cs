@@ -45,7 +45,8 @@ namespace Figury
                 $"Trojkat " +
                 $"{this.Punkt1.ToString()} " +
                 $"{this.Punkt2.ToString()} " +
-                $"{this.Punkt3.ToString()}";
+                $"{this.Punkt3.ToString()} " +
+                $"Kolor: {this.Color}";
         }
 
         public override double GetArea()
@@ -63,15 +64,6 @@ namespace Figury
 
             var area = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
             return area;
-        }
-
-        public override double GetOdleglosc()
-        {
-            var xTmp = (Punkt1.X + Punkt2.X + Punkt3.X) / 3;
-            var yTmp = (Punkt1.Y + Punkt2.Y + Punkt3.Y) / 3;
-            var nowyPunkt = new Punkt(xTmp, yTmp);
-
-            return nowyPunkt.GetOdleglosc();
         }
 
         public void ScalePerimeter(double k)

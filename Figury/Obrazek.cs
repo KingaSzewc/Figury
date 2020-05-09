@@ -13,29 +13,27 @@ namespace Figury
         public Obrazek()
         {
             listaFigur = new List<Figura>();
+            PrzykladoweDane();
+        }
 
-            //listaFigur.Add(new Punkt() { Label = "KINGU", X = 5, Y = 7 });
-            //listaFigur.Add(new Punkt() { Label = "testr", X = 5, Y = 7 });
-            //listaFigur.Add(new Punkt() { Label = "aasdas", X = 5, Y = 7 });
-            //listaFigur.Add(new Punkt() { Label = "eqwqweqwe", X = 5, Y = 7 });
+        public void PrzykladoweDane()
+        {
+            listaFigur.Add(new Punkt() { Label = "KINGU", X = 5, Y = 7 });
+            listaFigur.Add(new Punkt() { Label = "testr", X = 5, Y = 7 });
+            listaFigur.Add(new Punkt() { Label = "aasdas", X = 5, Y = 7 });
+            listaFigur.Add(new Punkt() { Label = "eqwqweqwe", X = 5, Y = 7 });
 
-            //listaFigur.Add(new Kolo() { Label = "eqwqweqwe", Punkt = new Punkt(5, 3), Promien = 9 });
-            //listaFigur.Add(new Kolo() { Label = "dsadasd", Punkt = new Punkt(5, 3), Promien = 9 });
-            //listaFigur.Add(new Kolo() { Label = "aaaaaaaa", Punkt = new Punkt(5, 3), Promien = 9 });
-            //listaFigur.Add(new Kolo() { Label = "bbbbbbbb", Punkt = new Punkt(1, 1), Promien = 9 });
+            listaFigur.Add(new Kolo() { Label = "eqwqweqwe", Punkt = new Punkt(5, 3), Promien = 9 });
+            listaFigur.Add(new Kolo() { Label = "dsadasd", Punkt = new Punkt(5, 3), Promien = 9 });
+            listaFigur.Add(new Kolo() { Label = "aaaaaaaa", Punkt = new Punkt(5, 3), Promien = 9 });
+            listaFigur.Add(new Kolo() { Label = "bbbbbbbb", Punkt = new Punkt(1, 1), Promien = 9 });
 
+            listaFigur.Add(new Odcinek() { Label = "oiuoui", Punkt1 = new Punkt(5, 4), Punkt2 = new Punkt(5, 4) });
+            listaFigur.Add(new Odcinek() { Label = "asdas", Punkt1 = new Punkt(5, 4), Punkt2 = new Punkt(5, 4) });
+            listaFigur.Add(new Odcinek() { Label = "hjdfghgdf", Punkt1 = new Punkt(5, 4), Punkt2 = new Punkt(5, 4) });
 
-            //listaFigur.Add(new Odcinek() { Label = "oiuoui", Punkt1 = new Punkt(5, 4), Punkt2 = new Punkt(5, 4) });
-            //listaFigur.Add(new Odcinek() { Label = "asdas", Punkt1 = new Punkt(5, 4), Punkt2 = new Punkt(5, 4) });
-            //listaFigur.Add(new Odcinek() { Label = "hjdfghgdf", Punkt1 = new Punkt(5, 4), Punkt2 = new Punkt(5, 4) });
-            var newTr = new Trojkat() { Label = "a", Punkt1 = new Punkt(0, 0), Punkt2 = new Punkt(4, 0), Punkt3 = new Punkt(0, 3) };
-            newTr.ScalePerimeter(2);
-            listaFigur.Add(newTr); 
-
-
+            listaFigur.Add(new Trojkat() { Label = "a", Punkt1 = new Punkt(0, 0), Punkt2 = new Punkt(4, 0), Punkt3 = new Punkt(0, 3) });
             listaFigur.Add(new Trojkat() { Label = "a", Punkt1 = new Punkt(-1, 0), Punkt2 = new Punkt(3, 0), Punkt3 = new Punkt(-1, 3) });
-            listaFigur.FirstOrDefault().GetOdleglosc();
-
         }
 
         public void DodajFigure(Figura nowy)
@@ -74,6 +72,18 @@ namespace Figury
             return area;
         }
 
+        public string ToStringTrojkatIKolo()
+        {
+            var stringToReturn = string.Empty;
+            var counter = 1;
+
+            foreach (var item in listaFigur.Where(x => x is Trojkat || x is Kolo))
+            {
+                stringToReturn += $"{counter++} {item.Label} {item.ToString()}\n";
+            }
+            return stringToReturn;
+        }
+
 
         public string ToStringSortedByLAbel()
         {
@@ -110,6 +120,38 @@ namespace Figury
             }
             return stringToReturn;
         }
-       
+        public void FillObjects(int numerElementu, int kolor)
+        {
+            var element = listaFigur.Where(x => x is Trojkat || x is Kolo).ElementAt(numerElementu - 1);
+
+            if (element is Kolo)
+            {
+                var kolo = (Kolo)element;
+                kolo.fill(kolor);
+            }
+
+            if (element is Trojkat)
+            {
+                var trojkat = (Trojkat)element;
+                trojkat.fill(kolor);
+            }
+        }
+
+        public void ScaleObject(int numerElementu, int k)
+        {
+            var element = listaFigur.Where(x => x is Trojkat || x is Kolo).ElementAt(numerElementu - 1);
+
+            if (element is Kolo)
+            {
+                var kolo = (Kolo)element;
+                kolo.ScalePerimeter(k);
+            }
+
+            if (element is Trojkat)
+            {
+                var trojkat = (Trojkat)element;
+                trojkat.ScalePerimeter(k);
+            }
+        }
     }
 }
