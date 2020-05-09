@@ -28,9 +28,9 @@ namespace Figury
             //listaFigur.Add(new Odcinek() { Label = "oiuoui", Punkt1 = new Punkt(5, 4), Punkt2 = new Punkt(5, 4) });
             //listaFigur.Add(new Odcinek() { Label = "asdas", Punkt1 = new Punkt(5, 4), Punkt2 = new Punkt(5, 4) });
             //listaFigur.Add(new Odcinek() { Label = "hjdfghgdf", Punkt1 = new Punkt(5, 4), Punkt2 = new Punkt(5, 4) });
-
-            listaFigur.Add(new Trojkat() { Label = "a", Punkt1 = new Punkt(0, 0), Punkt2 = new Punkt(4, 0), Punkt3 = new Punkt(0, 3) });
-            listaFigur.FirstOrDefault().GetOdleglosc();
+            var newTr = new Trojkat() { Label = "a", Punkt1 = new Punkt(0, 0), Punkt2 = new Punkt(4, 0), Punkt3 = new Punkt(0, 3) };
+            newTr.ScalePerimeter(2);
+            listaFigur.Add(newTr); 
 
 
             listaFigur.Add(new Trojkat() { Label = "a", Punkt1 = new Punkt(-1, 0), Punkt2 = new Punkt(3, 0), Punkt3 = new Punkt(-1, 3) });

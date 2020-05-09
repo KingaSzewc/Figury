@@ -74,17 +74,23 @@ namespace Figury
             return nowyPunkt.GetOdleglosc();
         }
 
-        public void scalePerimeter(double k)
+        public void ScalePerimeter(double k)
         {
-            var xTmp = (Punkt1.X + Punkt2.X + Punkt3.X) / 3;
-            var yTmp = (Punkt1.Y + Punkt2.Y + Punkt3.Y) / 3;
-            var nowyPunkt = new Punkt(xTmp, yTmp);
+            var odcA = new Odcinek(Punkt2, Punkt3).GetDlugosc();
+            var odcB = new Odcinek(Punkt3, Punkt1).GetDlugosc();
+            var odcC = new Odcinek(Punkt1, Punkt2).GetDlugosc();
 
+            var xSrodek = (odcA * Punkt1.X + odcB * Punkt2.X + odcC * Punkt3.X) / (odcA + odcB + odcC);
+            var ySrodek = (odcA * Punkt1.Y + odcB * Punkt2.Y + odcC * Punkt3.Y) / (odcA + odcB + odcC);
+            var tablica = new Punkt[] { Punkt1, Punkt2, Punkt3 };
 
-
-
-
-            throw new NotImplementedException();
+            foreach (var item in tablica)
+            {
+                var newPunkt3X = (item.X - xSrodek) * k;
+                var newPunkt3Y = (item.Y - ySrodek) * k;
+                item.X = newPunkt3X + xSrodek;
+                item.Y = newPunkt3Y + ySrodek;
+            }
         }
 
         public void fill(int color)

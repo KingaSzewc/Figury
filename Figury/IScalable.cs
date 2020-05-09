@@ -6,6 +6,6 @@ namespace Figury
 {
     public interface IScalable
     {
-        void scalePerimeter(double k);
+        void ScalePerimeter(double k);
     }
 }

@@ -49,7 +49,7 @@ namespace Figury
             return this.Punkt.GetOdleglosc();
         }
 
-        public void scalePerimeter(double k)
+        public void ScalePerimeter(double k)
         {
             Promien = Promien * k;
         }
