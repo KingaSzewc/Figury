@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Figury
 {
+    [Serializable]
     public class Punkt : Figura
     {
         public double X { get; set; }

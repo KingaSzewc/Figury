@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Figury
 {
+    [Serializable]
     public class Trojkat : Figura, IScalable, IFillable
     {
         public Punkt Punkt1 { get; set; }
