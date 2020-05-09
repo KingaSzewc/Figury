@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Figury
 {
+    [Serializable]
     public abstract class Figura
     {
         public string Label { get; set; }
@@ -22,7 +23,5 @@ namespace Figury
         {
             return 0;
         }
-
-
     }
 }

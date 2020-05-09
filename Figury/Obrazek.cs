@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
@@ -14,7 +16,7 @@ namespace Figury
         public Obrazek()
         {
             listaFigur = new List<Figura>();
-            PrzykladoweDane();
+            //PrzykladoweDane();
         }
 
         public void PrzykladoweDane()
@@ -153,6 +155,23 @@ namespace Figury
                 var trojkat = (Trojkat)element;
                 trojkat.ScalePerimeter(k);
             }
+        }
+
+
+        public void ZapiszDoPliku()
+        {
+            FileStream fs = new FileStream("figury.dat", FileMode.Create);
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(fs, listaFigur);
+            fs.Close();
+        }
+
+        public void OdczytajZPliku()
+        {
+            FileStream fs = new FileStream("figury.dat", FileMode.Open);
+            BinaryFormatter formatter = new BinaryFormatter();
+            listaFigur = (List<Figura>)formatter.Deserialize(fs);
+            fs.Close();
         }
     }
 }

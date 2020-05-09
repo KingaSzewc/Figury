@@ -12,6 +12,7 @@ namespace Figury
         public Menu()
         {
             obrazek = new UstandaryzowanyObrazek();
+            obrazek.OdczytajZPliku();
         }
 
         public void StartMenu()
@@ -48,6 +49,7 @@ namespace Figury
                             break;
                     }
                 }
+                obrazek.ZapiszDoPliku();
             }
         }
 
