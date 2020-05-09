@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Figury
 {
+    [Serializable]
     public class Kolo : Figura, IScalable, IFillable
     {
         public Punkt Punkt { get; set; }
