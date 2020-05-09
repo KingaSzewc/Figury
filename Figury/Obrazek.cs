@@ -110,5 +110,15 @@ namespace Figury
             }
             return stringToReturn;
         }
+        public void FillObjects()
+        {
+
+        }
+
+        public void ScaleObject()
+        {
+
+
+        }
     }
 }
